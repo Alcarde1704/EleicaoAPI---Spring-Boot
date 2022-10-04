@@ -9,11 +9,9 @@ public class EleitorDto {
 
     private Long id;
 
-
-
     private String nome;
 
-    private Long tituloeleitor;
+    private String tituloeleitor;
 
     public EleitorDto(Eleitor eleitor){
         this.id = eleitor.getId();
@@ -37,11 +35,11 @@ public class EleitorDto {
         this.nome = nome;
     }
 
-    public Long getTituloeleitor() {
+    public String getTituloeleitor() {
         return tituloeleitor;
     }
 
-    public void setTituloeleitor(Long tituloeleitor) {
+    public void setTituloeleitor(String tituloeleitor) {
         this.tituloeleitor = tituloeleitor;
     }
 

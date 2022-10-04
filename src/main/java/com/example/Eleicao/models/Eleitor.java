@@ -10,14 +10,14 @@ public class Eleitor {
     private Long id;
 
 
-    private Long cpf;
-    private Long tituloeleitor;
+    private String cpf;
+    private String tituloeleitor;
     private String nome;
 
 
     public Eleitor(){}
 
-    public Eleitor(Long cpf, Long tituloeleitor, String nome){
+    public Eleitor(String cpf, String tituloeleitor, String nome){
         this.cpf = cpf;
         this.tituloeleitor = tituloeleitor;
         this.nome = nome;
@@ -33,11 +33,11 @@ public class Eleitor {
         this.id = id;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -49,11 +49,11 @@ public class Eleitor {
         this.nome = nome;
     }
 
-    public Long getTituloEleitor() {
+    public String getTituloEleitor() {
         return tituloeleitor;
     }
 
-    public void setTituloEleitor(Long tituloEleitor) {
+    public void setTituloEleitor(String tituloEleitor) {
         this.tituloeleitor = tituloEleitor;
     }
 }

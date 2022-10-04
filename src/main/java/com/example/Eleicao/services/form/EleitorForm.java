@@ -1,29 +1,37 @@
 package com.example.Eleicao.services.form;
 
 import com.example.Eleicao.models.Eleitor;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
+import org.hibernate.validator.constraints.br.TituloEleitoral;
+
+import javax.validation.constraints.NotBlank;
 
 public class EleitorForm {
 
-    private Long cpf;
+    @CPF
+    private String cpf;
 
-    private Long tituloeleitor;
+    @TituloEleitoral
+    private String tituloeleitor;
 
+    @NotBlank
     private String nome;
 
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Long getTituloeleitor() {
+    public String getTituloeleitor() {
         return tituloeleitor;
     }
 
-    public void setTituloeleitor(Long tituloeleitor) {
+    public void setTituloeleitor(String tituloeleitor) {
         this.tituloeleitor = tituloeleitor;
     }
 
