@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.hibernate.validator.constraints.br.TituloEleitoral;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class EleitorForm {
 
@@ -16,6 +17,7 @@ public class EleitorForm {
     private String tituloeleitor;
 
     @NotBlank
+    @Size(min = 5, max = 200)
     private String nome;
 
 
@@ -44,6 +46,8 @@ public class EleitorForm {
     }
 
     public Eleitor converter(){
-        return new Eleitor(cpf, tituloeleitor, nome);
+        String cpfNovo = cpf.replaceAll("\\p{Punct}", "");
+
+        return new Eleitor(cpfNovo, tituloeleitor, nome);
     }
 }

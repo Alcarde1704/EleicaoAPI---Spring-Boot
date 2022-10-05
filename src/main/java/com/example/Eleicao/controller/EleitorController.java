@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/eleitor")
+@RequestMapping(value = "/eleitor", produces = "application/json")
 public class EleitorController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class EleitorController {
     }
 
     @PostMapping
-    public ResponseEntity<EleitorDto> cadastrar(@RequestBody @Valid EleitorForm eleitorForm, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<EleitorDto> cadastrar(@Valid @RequestBody EleitorForm eleitorForm, UriComponentsBuilder uriComponentsBuilder){
         return this.eleitorService.cadastrar(eleitorForm, uriComponentsBuilder);
     }
 

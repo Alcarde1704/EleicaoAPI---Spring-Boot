@@ -5,6 +5,7 @@ import com.example.Eleicao.repository.EleitorRepository;
 import com.example.Eleicao.services.dto.EleitorDto;
 import com.example.Eleicao.services.form.EleitorForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -27,10 +28,20 @@ public class EleitorService {
 
         Eleitor eleitor = eleitorForm.converter();
 
-        eleitorRepository.save(eleitor);
+        Eleitor validaEleitor = eleitorRepository.findByCpf(eleitor.getCpf());
 
-        URI uri = uriComponentsBuilder.path("/eleitor/{id}").buildAndExpand(eleitor.getId()).toUri();
-        return ResponseEntity.created(uri).body(new EleitorDto(eleitor));
+        if(validaEleitor != null){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } else{
+            eleitorRepository.save(eleitor);
+            URI uri = uriComponentsBuilder.path("/eleitor/{id}").buildAndExpand(eleitor.getId()).toUri();
+            return ResponseEntity.created(uri).body(new EleitorDto(eleitor));
+        }
+
+
+
+
+
     }
 
 }
