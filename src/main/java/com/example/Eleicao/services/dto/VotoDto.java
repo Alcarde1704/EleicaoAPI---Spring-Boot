@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class VotoDto {
 
+    private Long id;
     private String titulo;
 
     private int numeroCandidato;
@@ -17,10 +18,19 @@ public class VotoDto {
     private int sala;
 
     public VotoDto(Voto voto){
+        this.id = voto.getId();
         this.titulo = voto.getEleitor().getTitulo();
         this.numeroCandidato = voto.getCandidato().getNumero();
         this.bloco = voto.getUrna().getBloco();
         this.sala = voto.getUrna().getSala();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitulo() {

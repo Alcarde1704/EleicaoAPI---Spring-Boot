@@ -13,4 +13,6 @@ public interface VotoRepository extends JpaRepository<Voto, Long> {
     public Voto findByEleitor(Eleitor eleitor);
 
     public List<Voto> findByCandidato(Candidato candidato);
+
+    public Long countByCandidato(Candidato candidato);
 }

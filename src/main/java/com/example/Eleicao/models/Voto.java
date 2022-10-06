@@ -8,7 +8,7 @@ public class Voto {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     private Eleitor eleitor;
 
     @ManyToOne
