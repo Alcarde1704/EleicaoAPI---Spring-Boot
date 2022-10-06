@@ -4,6 +4,7 @@ import com.example.Eleicao.services.form.CandidatoForm;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -16,12 +17,13 @@ public class Candidato {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(min = 5, max = 100)
     private String nome;
 
-    @NotBlank
+
     private int numero;
+
+
+    private String partido;
 
 
     public Candidato(){}
@@ -55,5 +57,13 @@ public class Candidato {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public String getPartido() {
+        return partido;
+    }
+
+    public void setPartido(String partido) {
+        this.partido = partido;
     }
 }

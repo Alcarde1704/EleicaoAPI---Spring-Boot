@@ -6,6 +6,7 @@ import com.example.Eleicao.services.dto.CandidatoDto;
 import com.example.Eleicao.services.dto.EleitorDto;
 import com.example.Eleicao.services.form.CandidatoForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -27,9 +28,15 @@ public class CandidatoService {
     public ResponseEntity<CandidatoDto> cadastrar(CandidatoForm candidatoForm, UriComponentsBuilder uriComponentsBuilder){
         Candidato candidato = candidatoForm.converter();
 
-        candidatoRepository.save(candidato);
-        URI uri = uriComponentsBuilder.path("/eleitor/{id}").buildAndExpand(candidato.getId()).toUri();
-        return ResponseEntity.created(uri).body(new CandidatoDto(candidato));
+        Candidato validaCandidato = candidatoRepository.findByNumero(candidato.getNumero());
+
+        if (validaCandidato != null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            candidatoRepository.save(candidato);
+            URI uri = uriComponentsBuilder.path("/eleitor/{id}").buildAndExpand(candidato.getId()).toUri();
+            return ResponseEntity.created(uri).body(new CandidatoDto(candidato));
+        }
 
     }
 
