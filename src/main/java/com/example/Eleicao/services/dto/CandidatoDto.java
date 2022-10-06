@@ -13,10 +13,13 @@ public class CandidatoDto {
 
     private int numero;
 
+    private String partido;
+
     public CandidatoDto(Candidato candidato){
         this.id = candidato.getId();
         this.nome = candidato.getNome();
         this.numero = candidato.getNumero();
+        this.partido = candidato.getPartido();
     }
 
     public Long getId() {
@@ -43,6 +46,13 @@ public class CandidatoDto {
         this.numero = numero;
     }
 
+    public String getPartido() {
+        return partido;
+    }
+
+    public void setPartido(String partido) {
+        this.partido = partido;
+    }
 
     public static List<CandidatoDto> converter(List<Candidato> candidatos){
         return candidatos.stream().map(CandidatoDto::new).collect(Collectors.toList());

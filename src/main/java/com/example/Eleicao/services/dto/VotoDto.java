@@ -1,24 +1,27 @@
-package com.example.Eleicao.services.form;
+package com.example.Eleicao.services.dto;
 
+import com.example.Eleicao.models.Eleitor;
 import com.example.Eleicao.models.Voto;
-import org.hibernate.validator.constraints.br.TituloEleitoral;
 
-import javax.validation.constraints.Min;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class VotoForm {
+public class VotoDto {
 
-    @TituloEleitoral
     private String titulo;
 
-    @Min(2)
     private int numeroCandidato;
-
 
     private String bloco;
 
     private int sala;
 
-
+    public VotoDto(Voto voto){
+        this.titulo = voto.getEleitor().getTitulo();
+        this.numeroCandidato = voto.getCandidato().getNumero();
+        this.bloco = voto.getUrna().getBloco();
+        this.sala = voto.getUrna().getSala();
+    }
 
     public String getTitulo() {
         return titulo;
@@ -37,7 +40,7 @@ public class VotoForm {
     }
 
     public String getBloco() {
-        return bloco.toUpperCase();
+        return bloco;
     }
 
     public void setBloco(String bloco) {
@@ -50,5 +53,9 @@ public class VotoForm {
 
     public void setSala(int sala) {
         this.sala = sala;
+    }
+
+    public static List<VotoDto> converter(List<Voto> votos){
+        return votos.stream().map(VotoDto::new).collect(Collectors.toList());
     }
 }

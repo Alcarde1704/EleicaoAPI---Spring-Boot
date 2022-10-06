@@ -28,9 +28,11 @@ public class Candidato {
 
     public Candidato(){}
 
-    public Candidato(String nome, int numero){
+    public Candidato(String nome, int numero, String partido){
         this.nome = nome;
         this.numero = numero;
+        this.partido = partido;
+
     }
 
 

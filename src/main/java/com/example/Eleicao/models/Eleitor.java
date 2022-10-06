@@ -11,15 +11,15 @@ public class Eleitor {
 
 
     private String cpf;
-    private String tituloeleitor;
+    private String titulo;
     private String nome;
 
 
     public Eleitor(){}
 
-    public Eleitor(String cpf, String tituloeleitor, String nome){
+    public Eleitor(String cpf, String titulo, String nome){
         this.cpf = cpf;
-        this.tituloeleitor = tituloeleitor;
+        this.titulo = titulo;
         this.nome = nome;
     }
 
@@ -49,11 +49,11 @@ public class Eleitor {
         this.nome = nome;
     }
 
-    public String getTituloEleitor() {
-        return tituloeleitor;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTituloEleitor(String tituloEleitor) {
-        this.tituloeleitor = tituloEleitor;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

@@ -14,7 +14,7 @@ public class EleitorForm {
     private String cpf;
 
     @TituloEleitoral
-    private String tituloeleitor;
+    private String titulo;
 
     @NotBlank
     @Size(min = 5, max = 200)
@@ -29,12 +29,12 @@ public class EleitorForm {
         this.cpf = cpf;
     }
 
-    public String getTituloeleitor() {
-        return tituloeleitor;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTituloeleitor(String tituloeleitor) {
-        this.tituloeleitor = tituloeleitor;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getNome() {
@@ -48,6 +48,6 @@ public class EleitorForm {
     public Eleitor converter(){
         String cpfNovo = cpf.replaceAll("\\p{Punct}", "");
 
-        return new Eleitor(cpfNovo, tituloeleitor, nome);
+        return new Eleitor(cpfNovo, titulo, nome);
     }
 }

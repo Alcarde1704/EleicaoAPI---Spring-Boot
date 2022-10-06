@@ -25,7 +25,7 @@ public class EleitorController {
     }
 
     @PostMapping
-    public ResponseEntity<EleitorDto> cadastrar(@Valid @RequestBody EleitorForm eleitorForm, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<EleitorDto> cadastrar(@RequestBody EleitorForm eleitorForm, UriComponentsBuilder uriComponentsBuilder){
         return this.eleitorService.cadastrar(eleitorForm, uriComponentsBuilder);
     }
 

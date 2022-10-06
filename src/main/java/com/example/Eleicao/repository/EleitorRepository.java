@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface EleitorRepository extends JpaRepository<Eleitor, Long> {
 
     public Eleitor findByCpf(String cpf);
+
+    public Eleitor findByTitulo(String titulo);
 }

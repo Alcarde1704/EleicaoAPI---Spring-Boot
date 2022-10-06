@@ -11,12 +11,12 @@ public class EleitorDto {
 
     private String nome;
 
-    private String tituloeleitor;
+    private String titulo;
 
     public EleitorDto(Eleitor eleitor){
         this.id = eleitor.getId();
         this.nome = eleitor.getNome();
-        this.tituloeleitor = eleitor.getTituloEleitor();
+        this.titulo = eleitor.getTitulo();
     }
 
     public Long getId() {
@@ -35,12 +35,12 @@ public class EleitorDto {
         this.nome = nome;
     }
 
-    public String getTituloeleitor() {
-        return tituloeleitor;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTituloeleitor(String tituloeleitor) {
-        this.tituloeleitor = tituloeleitor;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
 

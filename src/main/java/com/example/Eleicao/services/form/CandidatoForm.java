@@ -18,6 +18,9 @@ public class CandidatoForm {
     @Max(value = 100)
     private int numero;
 
+    @NotBlank
+    private String partido;
+
     public String getNome() {
         return nome;
     }
@@ -34,8 +37,16 @@ public class CandidatoForm {
         this.numero = numero;
     }
 
+    public String getPartido() {
+        return partido;
+    }
+
+    public void setPartido(String partido) {
+        this.partido = partido;
+    }
+
     public Candidato converter(){
-        return new Candidato(this.nome, this.numero);
+        return new Candidato(this.nome, this.numero, this.partido);
     }
 
 

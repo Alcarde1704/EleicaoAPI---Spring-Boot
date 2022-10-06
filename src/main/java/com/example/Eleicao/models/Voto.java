@@ -17,6 +17,14 @@ public class Voto {
     @ManyToOne
     private Urna urna;
 
+    public Voto() {
+    }
+
+    public Voto(Eleitor eleitor, Candidato candidato, Urna urna){
+        this.eleitor = eleitor;
+        this.candidato = candidato;
+        this.urna = urna;
+    }
 
 
     public Long getId() {
