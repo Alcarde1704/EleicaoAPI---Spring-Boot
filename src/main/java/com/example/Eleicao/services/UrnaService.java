@@ -69,15 +69,15 @@ public class UrnaService {
                         URI uri = uriComponentsBuilder.path("/voto/{id}").buildAndExpand(voto.getId()).toUri();
                         return ResponseEntity.created(uri).body(new VotoDto(voto));
                     } else {
-                        return new ResponseEntity("Urna inválida, verifique novamente os dados" ,HttpStatus.BAD_REQUEST);
+                        return new ResponseEntity(HttpStatus.NO_CONTENT);
                     }
 
                 }
             } else {
-                return new ResponseEntity("Candidato inválido",HttpStatus.BAD_REQUEST);
+                return new ResponseEntity(HttpStatus.NO_CONTENT);
             }
         } else {
-            return new ResponseEntity("Eleitor inválido",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
 
 

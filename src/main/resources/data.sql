@@ -3,7 +3,7 @@ INSERT INTO ELEITOR(cpf, titulo, nome) VALUES(46296351810, 443993860167,'Diogo A
 INSERT INTO ELEITOR(cpf, titulo, nome) VALUES(46296351811, 443993860168,'Lucas Alcarde');
 INSERT INTO ELEITOR(cpf, titulo, nome) VALUES(46296351812, 443993860169,'Guto Alcarde');
 INSERT INTO ELEITOR(cpf, titulo, nome) VALUES(46296351813, 443993860160,'Solange Alcarde');
---INSERT INTO ELEITOR(cpf, tituloeleitor, nome) VALUES(46296351820, 443993860167,'Lucas Alcarde');
+INSERT INTO ELEITOR(cpf, titulo, nome) VALUES(46296351820, 443993860166,'Lucas Alcarde');
 
 INSERT INTO CANDIDATO(nome, numero, partido) VALUES('Bolsonaro', 22, 'PL');
 INSERT INTO CANDIDATO(nome, numero, partido) VALUES('Lula', 13, 'PT');

@@ -1,7 +1,7 @@
 package com.example.Eleicao.controller;
 
 import com.example.Eleicao.services.ProcessamentoService;
-import com.example.Eleicao.services.dto.ProcessamentoDto;
+import com.example.Eleicao.services.dto.ApuracaoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class ProcessamentoController {
     private ProcessamentoService processamentoService;
 
     @GetMapping
-    public List<ProcessamentoDto> apuracao(){
+    public  List<ApuracaoDto> apuracao(){
         return this.processamentoService.apuracao();
     }
 
